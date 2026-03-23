@@ -1,0 +1,218 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageHero from '../../components/PageHero.astro';
+
+const posts = [];
+---
+
+<Layout 
+  title="Blog" 
+  description="Artículos y novedades sobre tributación y auditoría."
+>
+  <Header />
+  
+  <PageHero 
+    label="Novedades & Artículos" 
+    title="Blog"
+    bgImage="/img/bg-title-5.webp"
+  />
+
+  <section class="blog-section">
+    <div class="container">
+      <div class="blog-intro animate-on-scroll">
+        <p>
+          Próximamente compartiremos artículos y novedades sobre tributación, 
+          auditoría y finanzas empresariales.
+        </p>
+      </div>
+
+      {posts.length > 0 ? (
+        <div class="blog-grid">
+          {posts.map((post) => (
+            <article class="blog-card animate-on-scroll">
+              <div class="blog-card-image">
+                <img src={post.image} alt={post.title} />
+              </div>
+              <div class="blog-card-content">
+                <time class="blog-card-date">{post.date}</time>
+                <h3 class="blog-card-title">{post.title}</h3>
+                <p class="blog-card-excerpt">{post.excerpt}</p>
+                <a href={`/blog/${post.slug}/`} class="blog-card-link">Leer más →</a>
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="blog-placeholder">
+          <div class="placeholder-grid">
+            {[1, 2, 3].map((i) => (
+              <div class="placeholder-card animate-on-scroll" key={i}>
+                <div class="placeholder-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
+                  </svg>
+                </div>
+                <h3>Artículo próximamente</h3>
+                <p class="placeholder-date">Fecha por definir</p>
+                <button class="btn-placeholder" disabled>Leer más</button>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .blog-section {
+    padding: 80px 0;
+    min-height: 50vh;
+  }
+
+  .blog-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 4rem;
+  }
+
+  .blog-intro p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #414656;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5rem;
+  }
+
+  .blog-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+
+  .blog-card-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .blog-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .blog-card-content {
+    padding: 1.5rem;
+  }
+
+  .blog-card-date {
+    display: block;
+    font-size: 0.85rem;
+    color: #1B60AD;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #142c4b;
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .blog-card-excerpt {
+    font-size: 0.95rem;
+    color: #414656;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .blog-card-link {
+    color: #1B60AD;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+  }
+
+  .blog-card-link:hover {
+    color: #142c4b;
+  }
+
+  .blog-placeholder {
+    padding: 2rem 0;
+  }
+
+  .placeholder-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+  }
+
+  .placeholder-card {
+    background: #f8f9fa;
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .placeholder-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1.5rem;
+    color: #1B60AD;
+    opacity: 0.5;
+  }
+
+  .placeholder-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .placeholder-card h3 {
+    font-size: 1.2rem;
+    color: #414656;
+    margin-bottom: 0.5rem;
+  }
+
+  .placeholder-date {
+    font-size: 0.9rem;
+    color: #999;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-placeholder {
+    background-color: #e0e0e0;
+    color: #999;
+    padding: 10px 24px;
+    border-radius: 4px;
+    border: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: not-allowed;
+  }
+
+  @media (max-width: 768px) {
+    .blog-grid,
+    .placeholder-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

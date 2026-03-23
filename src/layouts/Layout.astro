@@ -1,0 +1,59 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "ATLC - Consultoría Tributaria y Auditoría en Santiago, Chile." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <title>{title} | ATLC</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={`${title} | ATLC`} />
+    <meta property="og:description" content={description} />
+    <meta name="robots" content="index, follow" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400&display=swap" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+  <body>
+    <slot />
+    
+    <script>
+      // Intersection Observer para animaciones
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+      
+      // Header sticky con sombra al scroll
+      const header = document.querySelector('header');
+      if (header) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 50) {
+            header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+          } else {
+            header.style.boxShadow = 'none';
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

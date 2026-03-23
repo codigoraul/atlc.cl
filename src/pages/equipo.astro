@@ -1,0 +1,93 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import TeamCard from '../components/TeamCard.astro';
+
+const team = [
+  { 
+    name: "Oscar Andrés Gajardo V.", 
+    role: "CEO - Socio", 
+    image: "/img/Oscar-Gajardo-V.jpg" 
+  },
+];
+---
+
+<Layout 
+  title="Nuestro Equipo" 
+  description="Conoce al equipo de profesionales de ATLC."
+>
+  <Header />
+  
+  <PageHero 
+    label="Profesionales" 
+    title="Nuestro Equipo"
+    bgImage="/img/bg-title-2.webp"
+  />
+
+  <section class="team-section">
+    <div class="container">
+      <div class="team-intro animate-on-scroll">
+        <h2 class="section-title">Conoce al equipo detrás de ATLC</h2>
+        <p>
+          Nuestro equipo está conformado por profesionales altamente capacitados y con amplia 
+          experiencia en consultoría tributaria y auditoría financiera.
+        </p>
+      </div>
+
+      <div class="team-grid">
+        {team.map((member) => (
+          <TeamCard 
+            name={member.name}
+            role={member.role}
+            image={member.image}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .team-section {
+    padding: 80px 0;
+  }
+
+  .team-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 4rem;
+  }
+
+  .team-intro .section-title {
+    margin: 0 auto 1.5rem;
+  }
+
+  .team-intro .section-title::after {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .team-intro p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #414656;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .team-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,264 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="Inicio - Opción 2" 
+  description="Somos una consultora especializada en materias tributarias y auditoría en Chile."
+>
+  <Header />
+  
+  <!-- Hero con video de fondo - OPCIÓN 2 -->
+  <section class="hero-video">
+    <video autoplay muted loop playsinline class="hero-video-bg">
+      <source src="/video/video-bg2.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content container">
+      <h1 class="hero-title fade-in-up">Tax & Legal - Auditoría</h1>
+      <p class="hero-description fade-in-up">
+        Somos una consultora especializada en materias tributarias nacionales e internacionales, 
+        servicios de auditoría y outsourcing, apoyando a emprendedores, grupos empresariales, 
+        empresas familiares, pymes, personas y patrimonios.
+      </p>
+      <a href="/servicios/" class="btn-primary fade-in-up">SABER MÁS</a>
+    </div>
+  </section>
+
+  <!-- Servicio 1: Consultoría Tributaria -->
+  <section class="service-section" id="tributaria">
+    <div class="container">
+      <div class="service-grid">
+        <div class="service-image animate-on-scroll">
+          <img src="/img/consultoria-tributaria.jpg" alt="Consultoría Tributaria" />
+        </div>
+        <div class="service-content animate-on-scroll">
+          <span class="section-label">NUESTROS SERVICIOS</span>
+          <h2 class="section-title">Consultoría y Asesoría Tributaria</h2>
+          <p>
+            Nuestros servicios se enfocan en brindar asesoría en materias impositivas de consultoría 
+            y cumplimiento tributario para empresas, personas y sus patrimonios familiares y personales. 
+            Nuestros servicios en el área Tributaria abarcan:
+          </p>
+          <ul class="service-list">
+            <li>Consultoría tributaria permanente mensual y anual</li>
+            <li>Asesoría en reorganizaciones empresariales</li>
+            <li>Family Office</li>
+            <li>Incorporación de nuevos negocios y estructuración de inversiones nacionales y extranjeras</li>
+            <li>Diagnóstico y beneficios tributarios relacionados a la industria donde operan nuestros clientes</li>
+            <li>Informes periciales contables y tributarios</li>
+            <li>Due diligence tributarios</li>
+            <li>Apoyo en la planificación de operaciones para evitar contingencias en procesos de fiscalización por el SII</li>
+            <li>Compliance tributario</li>
+          </ul>
+          <a href="/contacto/" class="btn-primary">CONTACTAR</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicio 2: Auditoría -->
+  <section class="service-section service-section-alt" id="auditoria">
+    <div class="container">
+      <div class="service-grid service-grid-reverse">
+        <div class="service-content animate-on-scroll">
+          <span class="section-label">NUESTROS SERVICIOS</span>
+          <h2 class="section-title">Auditoría</h2>
+          <p>
+            La auditoría financiera es un proceso fundamental en los negocios, motivo por el cual 
+            nuestros servicios buscan que nuestros clientes se sientan seguros y confiados en que 
+            el dictamen sobre la razonabilidad de los estados financieros refleja fielmente la 
+            situación de su información contable.
+          </p>
+          <ul class="service-list">
+            <li>Auditoría de estados financieros</li>
+            <li>Auditoría para efectos fiscales</li>
+            <li>Gerenciamiento externo en materia de estados financieros</li>
+            <li>Supervisión contable</li>
+            <li>Asesoría en procesos de convergencia a normas IFRS</li>
+            <li>Consultoría en aspectos contables</li>
+            <li>Outsourcing contable (Preparación de informes financieros periódicos, balances y estados de resultados)</li>
+            <li>Outsourcing servicios de recursos humanos y remuneraciones</li>
+          </ul>
+          <a href="/contacto/" class="btn-primary">CONTACTAR</a>
+        </div>
+        <div class="service-image animate-on-scroll">
+          <img src="/img/auditorias-financieras.jpg" alt="Auditoría Financiera" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-content animate-on-scroll">
+        <h2>¿Necesitas asesoría tributaria o de auditoría?</h2>
+        <p>Nuestro equipo de expertos está listo para ayudarte.</p>
+        <a href="/contacto/" class="btn-cta">CONTÁCTANOS</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .hero-video {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(20, 44, 75, 0.75);
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding: 2rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    animation-delay: 0.2s;
+  }
+
+  .hero-description {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    line-height: 1.8;
+    animation-delay: 0.4s;
+  }
+
+  .hero-content .btn-primary {
+    animation-delay: 0.6s;
+  }
+
+  .service-section {
+    padding: 80px 0;
+  }
+
+  .service-section-alt {
+    background-color: #F1F1F1;
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .service-grid-reverse {
+    grid-template-columns: 60% 40%;
+  }
+
+  .service-image {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+  }
+
+  .service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .service-content {
+    padding: 2rem 0;
+  }
+
+  .service-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+
+  .service-content .btn-primary {
+    margin-top: 2rem;
+  }
+
+  .cta-banner {
+    background-color: #1B60AD;
+    padding: 80px 0;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-content h2 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+  }
+
+  .btn-cta {
+    display: inline-block;
+    background-color: white;
+    color: #1B60AD;
+    padding: 14px 32px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  .btn-cta:hover {
+    background-color: #f5f5f5;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .hero-video {
+      min-height: 70vh;
+    }
+
+    .service-grid,
+    .service-grid-reverse {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .service-image {
+      min-height: 300px;
+    }
+  }
+</style>

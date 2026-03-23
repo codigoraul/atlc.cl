@@ -1,0 +1,19 @@
+{
+  "name": "atlc-website",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "node node_modules/astro/astro.js dev",
+    "start": "node node_modules/astro/astro.js dev",
+    "build": "node node_modules/@astrojs/check/dist/bin.js && node node_modules/astro/astro.js build",
+    "preview": "node node_modules/astro/astro.js preview",
+    "astro": "node node_modules/astro/astro.js"
+  },
+  "dependencies": {
+    "astro": "^4.3.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.4.1",
+    "typescript": "^5.3.3"
+  }
+}
