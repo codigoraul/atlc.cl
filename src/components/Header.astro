@@ -36,18 +36,7 @@ const currentPath = Astro.url.pathname;
         </button>
 
         <nav class="nav" id="nav">
-          <div class="nav-item-dropdown">
-            <a href="/" class={currentPath === '/' || currentPath === '/inicio-opcion2/' ? 'nav-link active' : 'nav-link'}>
-              Inicio
-              <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-              </svg>
-            </a>
-            <div class="dropdown-menu">
-              <a href="/" class="dropdown-item">Opción Video 1</a>
-              <a href="/inicio-opcion2/" class="dropdown-item">Opción Video 2</a>
-            </div>
-          </div>
+          <a href="/" class={currentPath === '/' ? 'nav-link active' : 'nav-link'}>Inicio</a>
           <a href="/equipo/" class={currentPath === '/equipo/' ? 'nav-link active' : 'nav-link'}>Equipo</a>
           <a href="/servicios/" class={currentPath === '/servicios/' ? 'nav-link active' : 'nav-link'}>Servicios</a>
           <a href="/blog/" class={currentPath.startsWith('/blog') ? 'nav-link active' : 'nav-link'}>Blog</a>

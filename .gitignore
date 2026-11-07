@@ -29,3 +29,7 @@ public/img/*.png
 public/img/*.webp
 !public/logo-ATLC.png
 !public/logo-blanco.png
+
+# respaldos locales
+video-originals/
+.DS_Store
