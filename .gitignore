@@ -21,15 +21,6 @@ pnpm-debug.log*
 # jetbrains setting folders
 .idea/
 
-# archivos multimedia grandes
-public/video/*.mp4
-public/img/*.jpg
-public/img/*.jpeg
-public/img/*.png
-public/img/*.webp
-!public/logo-ATLC.png
-!public/logo-blanco.png
-
 # respaldos locales
 video-originals/
 .DS_Store
