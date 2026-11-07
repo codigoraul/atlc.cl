@@ -4,20 +4,14 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import PageHero from '../../components/PageHero.astro';
 
-interface Post {
-  title: string;
-  excerpt: string;
-  slug: string;
-  date: string;
-  image: string;
-}
+import { posts as allPosts, formatDate } from '../../data/posts';
 
-const posts: Post[] = [];
+const posts = [...allPosts].sort((a, b) => b.date.localeCompare(a.date));
 ---
 
 <Layout 
-  title="Blog" 
-  description="Artículos y novedades sobre tributación y auditoría."
+  title="Blog de Tributación y Auditoría | ATLC"
+  description="Artículos y novedades sobre tributación, auditoría y finanzas empresariales para empresas y personas en Chile."
 >
   <Header />
   
@@ -31,8 +25,9 @@ const posts: Post[] = [];
     <div class="container">
       <div class="blog-intro animate-on-scroll">
         <p>
-          Próximamente compartiremos artículos y novedades sobre tributación, 
-          auditoría y finanzas empresariales.
+          {posts.length > 0
+            ? 'Artículos y novedades sobre tributación, auditoría y finanzas empresariales.'
+            : 'Próximamente compartiremos artículos y novedades sobre tributación, auditoría y finanzas empresariales.'}
         </p>
       </div>
 
@@ -41,10 +36,10 @@ const posts: Post[] = [];
           {posts.map((post) => (
             <article class="blog-card animate-on-scroll">
               <div class="blog-card-image">
-                <img src={post.image} alt={post.title} />
+                <img src={post.image} alt={post.title} width={post.imageWidth} height={post.imageHeight} loading="lazy" decoding="async" />
               </div>
               <div class="blog-card-content">
-                <time class="blog-card-date">{post.date}</time>
+                <time class="blog-card-date" datetime={post.date}>{formatDate(post.date)}</time>
                 <h3 class="blog-card-title">{post.title}</h3>
                 <p class="blog-card-excerpt">{post.excerpt}</p>
                 <a href={`/blog/${post.slug}/`} class="blog-card-link">Leer más →</a>

@@ -5,9 +5,10 @@ import Footer from '../components/Footer.astro';
 ---
 
 <Layout 
-  title="Inicio" 
-  description="Somos una consultora especializada en materias tributarias y auditoría en Chile."
+  title="Asesoría Tributaria y Auditoría en Santiago | ATLC"
+  description="Consultora en Santiago especializada en asesoría tributaria nacional e internacional, auditoría y outsourcing contable para empresas, pymes y personas."
 >
+  <link slot="head" rel="preload" as="image" href="/video/poster2.jpg" fetchpriority="high" />
   <Header />
   
   <!-- Hero con video de fondo -->
@@ -17,7 +18,7 @@ import Footer from '../components/Footer.astro';
     </video>
     <div class="hero-overlay"></div>
     <div class="hero-content container">
-      <h1 class="hero-title fade-in-up">Tax & Legal - Auditoría</h1>
+      <h1 class="hero-title fade-in-up">Asesoría Tributaria y Auditoría en Santiago</h1>
       <p class="hero-description fade-in-up">
         Somos una consultora especializada en materias tributarias nacionales e internacionales, 
         servicios de auditoría y outsourcing, apoyando a emprendedores, grupos empresariales, 
@@ -32,7 +33,7 @@ import Footer from '../components/Footer.astro';
     <div class="container">
       <div class="service-grid">
         <div class="service-image animate-on-scroll">
-          <img src="/img/consultoria-tributaria.jpg" alt="Consultoría Tributaria" />
+          <img src="/img/consultoria-tributaria.jpg" alt="Consultoría y asesoría tributaria" width="613" height="802" loading="lazy" decoding="async" />
         </div>
         <div class="service-content animate-on-scroll">
           <span class="section-label">NUESTROS SERVICIOS</span>
@@ -85,7 +86,7 @@ import Footer from '../components/Footer.astro';
           <a href="/contacto/" class="btn-primary">CONTACTAR</a>
         </div>
         <div class="service-image animate-on-scroll">
-          <img src="/img/auditorias-financieras.jpg" alt="Auditoría Financiera" />
+          <img src="/img/auditorias-financieras.jpg" alt="Auditoría financiera de estados financieros" width="645" height="800" loading="lazy" decoding="async" />
         </div>
       </div>
     </div>

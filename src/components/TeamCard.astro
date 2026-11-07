@@ -9,7 +9,7 @@ const { name, role, image } = Astro.props;
 
 <div class="team-card animate-on-scroll">
   <div class="team-card-image">
-    <img src={image} alt={name} />
+    <img src={image} alt={name} loading="lazy" decoding="async" />
   </div>
   <div class="team-card-content">
     <h3 class="team-card-name">{name}</h3>
